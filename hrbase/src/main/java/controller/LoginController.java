@@ -15,6 +15,13 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	
+	/*
+	 * ログイン 係長以上
+	 * username：kimura　password：1234
+	 * ログイン 係長未満
+	 * username：nakata　password：1234
+	 * */
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String view = "/WEB-INF/views/login.jsp";
         req.getRequestDispatcher(view).forward(req, res);
