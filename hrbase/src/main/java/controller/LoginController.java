@@ -17,9 +17,9 @@ public class LoginController extends HttpServlet {
 	
 	/*
 	 * ログイン 係長以上
-	 * username：kimura　password：1234
+	 * username：kimura　password：12345678
 	 * ログイン 係長未満
-	 * username：nakata　password：1234
+	 * username：nakata　password：12345678
 	 * */
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -40,7 +40,7 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("id", userId);
                 session.setAttribute("username", username);
                 session.setAttribute("position_id", positionId);
-                System.out.println(positionId);
+               
                 if (positionId > 2) {
                     res.sendRedirect("mypage");
                 } else {

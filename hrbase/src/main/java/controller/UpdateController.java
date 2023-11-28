@@ -22,8 +22,6 @@ public class UpdateController extends HttpServlet {
 		String username = request.getParameter("username");
 		String userpassword = request.getParameter("userpassword");
 		
-		System.out.println(department_id);
-		
 		HrDAO hrDAO = new HrDAO();
 		hrDAO.updateHr(id, department_id, employee, position_id, username, userpassword);
 		

@@ -69,7 +69,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="userpassword" class="form-label"><strong>Password</strong></label>
-                    <input type="text" class="form-control" id="userpassword" name="userpassword" value='<%= columns.get("userpassword") %>'>
+                    <input type="text" class="form-control" id="userpassword" name="userpassword">
                 </div>
                 <button type="submit" class="btn btn-primary">保存する</button>
                 <a href='show?id=<%= columns.get("id") %>' class="btn btn-secondary">キャンセル</a>

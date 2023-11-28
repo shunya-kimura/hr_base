@@ -17,6 +17,7 @@ public class HrDAO {
     private final String user = "root";
     private final String password = "";
     
+    
 
     public List<HashMap<String, String>> getHrs() {
     	try {
@@ -131,13 +132,14 @@ public class HrDAO {
     	String sql = "UPDATE hrs SET department_id = ?, employee = ?, position_id = ?, username = ?, userpassword = ? WHERE id = ?";
         
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
+        	String hashedPassword = HashGenerator.generateHash(userpassword);
             PreparedStatement statement = connection.prepareStatement(sql);
             
             statement.setInt(1, department_id);
             statement.setString(2, employee);
             statement.setInt(3, position_id);
             statement.setString(4, username);
-            statement.setString(5, userpassword);
+            statement.setString(5, hashedPassword);
             statement.setInt(6, id);
                     
             statement.executeUpdate();
@@ -167,9 +169,15 @@ public class HrDAO {
     		e.printStackTrace();
     	}
     	
+    	// パスワードが8文字未満の場合、処理を中止してエラーを出力する
+        if (userpassword.length() < 8) {
+            System.out.println("8文字以上入力されていません");
+            return;
+        }
+    	
     	String sql = "INSERT INTO hrs (department_id, employee, position_id, username, userpassword) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
-        	 String hashedPassword = HashGenerator.generateHash(userpassword);
+        	String hashedPassword = HashGenerator.generateHash(userpassword);
             PreparedStatement statement = connection.prepareStatement(sql);
        
 			statement.setInt(1, department_id);
@@ -191,6 +199,12 @@ public class HrDAO {
     		e.printStackTrace();
     	}
     	int[] result = new int[]{-1, -1};
+    	
+    	
+    	//パスワードが8文字以上必要
+    	if (userpassword.length() < 8) {
+            return result;
+        }
     	
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String hashedPassword = HashGenerator.generateHash(userpassword);

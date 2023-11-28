@@ -47,8 +47,6 @@
                     <p class="card-text"><strong>所属課：</strong> <%= columns.get("department_name") %></p>
                     <p class="card-text"><strong>名前：</strong> <%= columns.get("employee") %></p>
                     <p class="card-text"><strong>役職：</strong> <%= columns.get("position_name") %></p>
-                    <p class="card-text"><strong>Username：</strong> <%= columns.get("username") %></p>
-                    <p class="card-text"><strong>Password：</strong> <%= columns.get("userpassword") %></p>
                 </div>
             </div>
             <% } %>    
