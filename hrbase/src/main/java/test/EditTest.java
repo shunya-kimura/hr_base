@@ -9,28 +9,29 @@ import org.junit.jupiter.api.Test;
 
 import dao.HrDAO;
 
-public class MypageTest {
+public class EditTest {
 
 	@Test
-	public void testGetMypage() {
+	public void testGetEdit() {
 		HrDAO hrDAO = new HrDAO();
 		int id = 15;
 		
-		List<HashMap<String, String>> result = hrDAO.getMypage(id);
+		List<HashMap<String, String>> result = hrDAO.getEdit(id);
 		
 		assertNotNull(result);
 		assertFalse(result.isEmpty());
 	}
 	
-	//無効なID
+	
 	@Test
-	public void testGetMypageInvalid() {
+	public void testGetEditInvalid() {
 		HrDAO hrDAO = new HrDAO();
 		int id = 0;
 		
-		List<HashMap<String, String>> result = hrDAO.getMypage(id);
+		List<HashMap<String, String>> result = hrDAO.getEdit(id);
 		
 		assertNotNull(result);
 		assertFalse(result.isEmpty());
 	}
+
 }

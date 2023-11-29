@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 
 import dao.HrDAO;
 
-public class MypageTest {
+public class ShowTest {
 
 	@Test
-	public void testGetMypage() {
+	public void testGetShow() {
 		HrDAO hrDAO = new HrDAO();
 		int id = 15;
 		
-		List<HashMap<String, String>> result = hrDAO.getMypage(id);
+		List<HashMap<String, String>> result = hrDAO.getShow(id);
 		
 		assertNotNull(result);
 		assertFalse(result.isEmpty());
@@ -24,13 +24,14 @@ public class MypageTest {
 	
 	//無効なID
 	@Test
-	public void testGetMypageInvalid() {
+	public void testGetShowInvalid() {
 		HrDAO hrDAO = new HrDAO();
 		int id = 0;
 		
-		List<HashMap<String, String>> result = hrDAO.getMypage(id);
+		List<HashMap<String, String>> result = hrDAO.getShow(id);
 		
 		assertNotNull(result);
 		assertFalse(result.isEmpty());
 	}
+
 }
